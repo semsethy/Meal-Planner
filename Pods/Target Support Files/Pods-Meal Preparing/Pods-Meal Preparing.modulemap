@@ -1,0 +1,6 @@
+framework module Pods_Meal_Preparing {
+  umbrella header "Pods-Meal Preparing-umbrella.h"
+
+  export *
+  module * { export * }
+}
