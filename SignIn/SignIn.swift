@@ -3,6 +3,7 @@ import SnapKit
 import KeychainSwift
 import FirebaseAuth
 
+// Sign In Screen
 class SignIn: UIViewController {
 
     private let titleLabel: UILabel = {

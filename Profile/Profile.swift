@@ -24,6 +24,8 @@ extension UIImage {
         return roundedImage
     }
 }
+
+// Profile Screen
 @available(iOS 13.0, *)
 class Profile: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,NVActivityIndicatorViewable{
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
