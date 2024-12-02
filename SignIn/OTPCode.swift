@@ -2,6 +2,7 @@ import UIKit
 import FirebaseAuth
 import SnapKit
 
+// OTP Code
 class ConOTPViewController: UIViewController {
     
     private let titleLabel: UILabel = {
