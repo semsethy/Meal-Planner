@@ -43,4 +43,3 @@ _Add screenshots here to show UI (home screen, plan screen, recipe detail, etc.)
 1. Clone the repository:
    ```bash
    git clone https://github.com/semsethy/Meal-Planner.git
-```
