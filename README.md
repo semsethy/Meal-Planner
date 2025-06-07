@@ -1,6 +1,6 @@
 # 🍽️ Meal Planner App
 
-A modern SwiftUI-based iOS application that helps users plan their meals, organize recipes, schedule meal times, and track their eating habits daily and weekly. Designed with a clean interface, Firebase integration, and full dark mode support.
+A modern UIKit-based iOS application that helps users plan their meals, organize recipes, schedule meal times, and track their eating habits daily and weekly. Designed with a clean interface, Firebase integration, and full dark mode support.
 
 ## 📱 Features
 
