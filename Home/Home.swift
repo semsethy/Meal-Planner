@@ -547,7 +547,7 @@ class Home: UIViewController, UISearchBarDelegate {
         slideshow.snp.makeConstraints { make in
             make.top.equalTo(specialLabel.snp.bottom).offset(10)
             make.leading.trailing.equalTo(bottomView).inset(10)
-            make.height.equalTo(230)
+            make.height.equalTo(slideshow.snp.width).multipliedBy(0.5)
         }
         
         recomLabel.snp.makeConstraints { make in

@@ -245,6 +245,8 @@ class Profile: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     @objc func toggleMode() {
         let isDarkMode = darkModeSwitch.isOn
         UserDefaults.standard.set(isDarkMode ? "dark" : "light", forKey: "userInterfaceStyle")
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.updateAppearance(darkModeEnabled: isDarkMode)
         // Notify other parts of the app about the change
         NotificationCenter.default.post(name: .userInterfaceStyleChanged, object: nil)
     }

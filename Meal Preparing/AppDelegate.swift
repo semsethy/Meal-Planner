@@ -12,16 +12,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Configure Firebase
         FirebaseApp.configure()
-        
-        // Initialize Window and Root View Controller
+
+        // Create window first
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = LetsGetStarted() // Ensure this view controller exists and is set up properly
+
+        // Setup Root View Controller
+        window?.rootViewController = LetsGetStarted()
         window?.makeKeyAndVisible()
         
+        // Apply Dark Mode based on saved preference
+        let userPrefStyle = UserDefaults.standard.string(forKey: "userInterfaceStyle")
+        if userPrefStyle == "dark" {
+            window?.overrideUserInterfaceStyle = .dark
+        } else {
+            window?.overrideUserInterfaceStyle = .light
+        }
+
+        // Check notification permissions
+        UNUserNotificationCenter.current().delegate = self // Set delegate to handle foreground notifications
+
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            DispatchQueue.main.async {
+                if granted {
+                    print("🔔 Notification permission granted.")
+                    UserDefaults.standard.set(true, forKey: "allowNotification")
+                } else {
+                    print("🚫 Notification permission denied.")
+                    UserDefaults.standard.set(false, forKey: "allowNotification")
+                }
+            }
+        }
+
+
         return true
     }
+
     
 
     // MARK: - Core Data Stack
@@ -56,5 +82,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
                 print("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func updateAppearance(darkModeEnabled: Bool) {
+        window?.overrideUserInterfaceStyle = darkModeEnabled ? .dark : .light
+    }
+
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        let userPrefStyle = UserDefaults.standard.string(forKey: "userInterfaceStyle")
+        updateAppearance(darkModeEnabled: userPrefStyle == "dark")
+    }
+
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Show notification while app is in foreground
+        completionHandler([.alert, .sound])
     }
 }
