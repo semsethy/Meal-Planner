@@ -1,9 +1,6 @@
 # Meal-Planner
 I developed this app to refine my skills and achieve expertise in iOS development.
 
-This is what my app looks like:
-![Foodie_App](https://github.com/user-attachments/assets/67e4ff09-c19b-4bcb-a896-4c54cc6e9f0f)
-
 # 🍽️ Meal Planner App
 
 A modern SwiftUI-based iOS application that helps users plan their meals, organize recipes, schedule meal times, and track their eating habits daily and weekly. Designed with a clean interface, Firebase integration, and full dark mode support.
@@ -28,7 +25,9 @@ A modern SwiftUI-based iOS application that helps users plan their meals, organi
 
 ## 📸 Screenshots
 
-_Add screenshots here to show UI (home screen, plan screen, recipe detail, etc.)_
+This is what my app looks like:
+
+![Foodie_App](https://github.com/user-attachments/assets/67e4ff09-c19b-4bcb-a896-4c54cc6e9f0f)
 
 
 ## 🚀 Getting Started
